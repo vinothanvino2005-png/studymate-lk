@@ -3,78 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sri Lankan Student Notes Platform</title>
+    <title>StudentNotes.lk | Ultimate Study Hub</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts for Tamil support -->
-    <link href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts & FontAwesome for Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
+    <!-- Glowing Background Shapes for Visual Effect -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
     <!-- Navigation Bar -->
-    <header>
-        <div class="logo">🎓 StudentNotes.lk</div>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Notes & Papers</a>
-            <a href="#">AI Tutor</a>
-            <a href="#">Premium</a>
-            <a href="#" class="btn-login">Login</a>
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-graduation-cap"></i> Student<span>Notes</span>.lk
+        </div>
+        <nav class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="#">Resources</a>
+            <a href="#">AI Tutor <span class="badge">New</span></a>
+            <a href="#">Pricing</a>
         </nav>
+        <div class="nav-actions">
+            <a href="#" class="btn-secondary">Login</a>
+            <a href="#" class="btn-primary">Get Started</a>
+        </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>श्री Lankan Students-க்கான ஒரே இடத்தில் அனைத்து Notes & Past Papers!</h1>
-        <p>School, University மற்றும் IT resources எல்லாவற்றையும் எளிதாக தேடி Download செய்யுங்கள்.</p>
-        
-        <!-- Search Filter Box -->
-        <div class="search-box">
-            <select>
-                <option value="">Grade / Level தேர்வு செய்க</option>
-                <option value="grade-10">Grade 10</option>
-                <option value="grade-11">Grade 11 (O/L)</option>
-                <option value="al">A/L Science / Maths / Arts</option>
-                <option value="university">University</option>
-            </select>
+        <div class="hero-content">
+            <div class="hero-tag">🇱🇰 Sri Lanka's #1 Digital Learning Platform</div>
+            <h1>உங்கள் கல்வி வெற்றிக்கான <br><span class="highlight">ஒரே டிஜிட்டல் தளம்</span></h1>
+            <p>School Notes, Past Papers, Model Papers மற்றும் AI Tutor வசதிகள் அனைத்தும் ஒரே இடத்தில்.</p>
+        </div>
 
-            <select>
-                <option value="">Subject தேர்வு செய்க</option>
-                <option value="science">Science</option>
-                <option value="maths">Mathematics</option>
-                <option value="it">ICT</option>
-            </select>
+        <!-- Advanced Glassmorphism Search Box -->
+        <div class="search-container">
+            <div class="search-box">
+                <div class="input-group">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <select>
+                        <option value="">Grade / Level</option>
+                        <option value="grade-10">Grade 10</option>
+                        <option value="grade-11">Grade 11 (O/L)</option>
+                        <option value="al">A/L Science / Maths</option>
+                        <option value="uni">University Level</option>
+                    </select>
+                </div>
 
-            <select>
-                <option value="">Medium</option>
-                <option value="tamil">Tamil Medium</option>
-                <option value="sinhala">Sinhala Medium</option>
-                <option value="english">English Medium</option>
-            </select>
+                <div class="input-group">
+                    <i class="fa-solid fa-book-open"></i>
+                    <select>
+                        <option value="">Subject</option>
+                        <option value="science">Science</option>
+                        <option value="maths">Mathematics</option>
+                        <option value="ict">ICT / IT</option>
+                    </select>
+                </div>
 
-            <button type="submit">Search Notes 🔍</button>
+                <div class="input-group">
+                    <i class="fa-solid fa-language"></i>
+                    <select>
+                        <option value="">Medium</option>
+                        <option value="tamil">Tamil Medium</option>
+                        <option value="sinhala">Sinhala Medium</option>
+                        <option value="english">English Medium</option>
+                    </select>
+                </div>
+
+                <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+            </div>
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Features Grid -->
     <section class="features">
-        <div class="feature-card">
-            <h3>📚 School Notes</h3>
-            <p>Unit-wise short notes and detailed guides.</p>
+        <div class="card">
+            <div class="icon-box blue"><i class="fa-solid fa-book"></i></div>
+            <h3>School & Uni Notes</h3>
+            <p>Unit-wise structured short notes prepared by expert teachers.</p>
         </div>
-        <div class="feature-card">
-            <h3>📝 Past Papers</h3>
-            <p>O/L and A/L past papers with marking schemes.</p>
+        <div class="card">
+            <div class="icon-box purple"><i class="fa-solid fa-file-lines"></i></div>
+            <h3>Past Papers & MCQs</h3>
+            <p>Access provincial, term, and national O/L & A/L past papers easily.</p>
         </div>
-        <div class="feature-card">
-            <h3>🤖 AI Tutor</h3>
-            <p>புரியாத பாடங்களை தமிழில் விளக்கிக் கேட்கலாம்.</p>
+        <div class="card">
+            <div class="icon-box orange"><i class="fa-solid fa-robot"></i></div>
+            <h3>AI Tutor Assistant</h3>
+            <p>Stuck on a concept? Ask our AI in Tamil and clear your doubts instantly.</p>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 StudentNotes.lk | Built with ❤️ for Sri Lankan Students</p>
-    </footer>
 
 </body>
 </html>
