@@ -67,10 +67,6 @@ body {
     transition: all 0.2s ease;
 }
 
-.btn-signup:active {
-    box-shadow: inset 3px 3px 6px #06080e, inset -3px -3px 6px #162034;
-}
-
 /* Hero Section Layout */
 .hero-section {
     width: 90%;
@@ -78,7 +74,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 40px;
     gap: 50px;
 }
 
@@ -104,10 +100,10 @@ body {
     font-size: 16px;
     line-height: 1.6;
     color: #94a3b8;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
-/* Subscribe / Input Box (Neumorphism) */
+/* Search Box (Neumorphism) */
 .subscribe-box {
     display: flex;
     background: #0f172a;
@@ -115,7 +111,7 @@ body {
     border-radius: 40px;
     box-shadow: inset 4px 4px 8px #070b14, inset -4px -4px 8px #17233f;
     max-width: 450px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .subscribe-box input {
@@ -178,14 +174,14 @@ body {
     position: absolute;
     background: #0f172a;
     border-radius: 20px;
-    padding: 25px;
+    padding: 22px;
     box-shadow: 10px 10px 20px #05080e, -10px -10px 20px #192646;
 }
 
 .card-1 {
-    width: 260px;
+    width: 270px;
     top: 0;
-    right: 50px;
+    right: 30px;
 }
 
 .card-header {
@@ -194,18 +190,25 @@ body {
     gap: 10px;
     color: #ffffff;
     font-weight: 600;
-    margin-bottom: 20px;
+    font-size: 14px;
+    margin-bottom: 8px;
 }
 
 .card-header i {
     color: #818cf8;
 }
 
+.card-subtext {
+    font-size: 12px;
+    color: #818cf8;
+    margin-bottom: 15px;
+}
+
 .media-controls {
     display: flex;
     justify-content: space-around;
     color: #94a3b8;
-    margin: 20px 0;
+    margin: 15px 0;
     font-size: 16px;
 }
 
@@ -227,21 +230,21 @@ body {
 }
 
 .card-2 {
-    width: 240px;
+    width: 230px;
     bottom: 20px;
     left: 0;
 }
 
 .stars {
     color: #fbbf24;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     font-size: 14px;
 }
 
 .card-2 h4 {
     color: #ffffff;
     font-size: 15px;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 }
 
 .card-2 p {
@@ -252,13 +255,13 @@ body {
 .card-3 {
     width: 250px;
     bottom: -20px;
-    right: 20px;
+    right: 10px;
 }
 
 .card-3 h4 {
     color: #ffffff;
-    font-size: 14px;
-    margin-bottom: 12px;
+    font-size: 13px;
+    margin-bottom: 10px;
 }
 
 .dropdown-mock {
@@ -271,4 +274,57 @@ body {
     font-size: 12px;
     color: #cbd5e1;
     box-shadow: inset 2px 2px 5px #06080e, inset -2px -2px 5px #141f36;
+}
+
+/* Features Section Below */
+.features-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 80px 0 60px;
+}
+
+.section-title {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.feature-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.feat-card {
+    background: #0f172a;
+    border-radius: 20px;
+    padding: 30px;
+    width: 350px;
+    box-shadow: 8px 8px 16px #05080e, -8px -8px 16px #192646;
+    transition: transform 0.3s;
+}
+
+.feat-card:hover {
+    transform: translateY(-5px);
+}
+
+.feat-card i {
+    font-size: 32px;
+    color: #818cf8;
+    margin-bottom: 20px;
+}
+
+.feat-card h3 {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.feat-card p {
+    color: #94a3b8;
+    font-size: 14px;
+    line-height: 1.5;
 }
