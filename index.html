@@ -5,96 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudentNotes.lk | Ultimate Study Hub</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts & FontAwesome for Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Colorful Background Blur Blobs -->
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-
     <!-- Navigation Bar -->
     <header class="navbar">
-        <div class="logo">
-            <i class="fa-solid fa-graduation-cap"></i> Student<span>Notes</span>.lk
-        </div>
+        <div class="logo">Student<span>Notes.lk</span></div>
         <nav class="nav-links">
             <a href="#" class="active">Home</a>
-            <a href="#">Resources</a>
-            <a href="#">AI Tutor <span class="badge">New</span></a>
-            <a href="#">Pricing</a>
+            <a href="#">Profile</a>
+            <a href="#">About</a>
+            <a href="#">Help</a>
         </nav>
-        <div class="nav-actions">
-            <a href="#" class="btn-secondary">Login</a>
-            <a href="#" class="btn-primary">Get Started</a>
+        <div class="nav-action">
+            <a href="#" class="btn-signup">Sign Up</a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-tag">🇱🇰 Sri Lanka's #1 Digital Learning Platform</div>
-            <h1>உங்கள் கல்வி வெற்றிக்கான <br><span class="highlight">ஒரே டிஜிட்டல் தளம்</span></h1>
-            <p>School Notes, Past Papers, Model Papers மற்றும் AI Tutor வசதிகள் அனைத்தும் ஒரே இடத்தில்.</p>
-        </div>
+    <!-- Main Hero Section -->
+    <section class="hero-section">
+        <div class="hero-left">
+            <h1>The Ultimate Guide <br>To Sri Lankan <br><span>Student Studies</span></h1>
+            <p>Access high-quality School Notes, Past Papers, and AI-powered learning tools designed uniquely for your academic success.</p>
+            
+            <!-- Email / Quick Search Form -->
+            <div class="subscribe-box">
+                <input type="email" placeholder="Enter your e-mail here">
+                <button class="btn-enter">Explore Now</button>
+            </div>
 
-        <!-- Advanced Search Box -->
-        <div class="search-container">
-            <div class="search-box">
-                <div class="input-group">
-                    <i class="fa-solid fa-layer-group"></i>
-                    <select>
-                        <option value="">Grade / Level</option>
-                        <option value="grade-10">Grade 10</option>
-                        <option value="grade-11">Grade 11 (O/L)</option>
-                        <option value="al">A/L Science / Maths</option>
-                        <option value="uni">University Level</option>
-                    </select>
-                </div>
-
-                <div class="input-group">
-                    <i class="fa-solid fa-book-open"></i>
-                    <select>
-                        <option value="">Subject</option>
-                        <option value="science">Science</option>
-                        <option value="maths">Mathematics</option>
-                        <option value="ict">ICT / IT</option>
-                    </select>
-                </div>
-
-                <div class="input-group">
-                    <i class="fa-solid fa-language"></i>
-                    <select>
-                        <option value="">Medium</option>
-                        <option value="tamil">Tamil Medium</option>
-                        <option value="sinhala">Sinhala Medium</option>
-                        <option value="english">English Medium</option>
-                    </select>
-                </div>
-
-                <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+            <!-- Social Links -->
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
             </div>
         </div>
-    </section>
 
-    <!-- Features Grid -->
-    <section class="features">
-        <div class="card">
-            <div class="icon-box blue"><i class="fa-solid fa-book"></i></div>
-            <h3>School & Uni Notes</h3>
-            <p>Unit-wise structured short notes prepared by expert teachers.</p>
-        </div>
-        <div class="card">
-            <div class="icon-box purple"><i class="fa-solid fa-file-lines"></i></div>
-            <h3>Past Papers & MCQs</h3>
-            <p>Access provincial, term, and national O/L & A/L past papers easily.</p>
-        </div>
-        <div class="card">
-            <div class="icon-box orange"><i class="fa-solid fa-robot"></i></div>
-            <h3>AI Tutor Assistant</h3>
-            <p>Stuck on a concept? Ask our AI in Tamil and clear your doubts instantly.</p>
+        <!-- Right Side 3D Floating Neumorphic Cards -->
+        <div class="hero-right">
+            <div class="floating-card card-1">
+                <div class="card-header">
+                    <i class="fa-solid fa-brain"></i>
+                    <span>AI Quiz & Tutor</span>
+                </div>
+                <div class="media-controls">
+                    <i class="fa-solid fa-backward-step"></i>
+                    <i class="fa-solid fa-play"></i>
+                    <i class="fa-solid fa-forward-step"></i>
+                </div>
+                <div class="slider-bar"></div>
+            </div>
+
+            <div class="floating-card card-2">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <h4>Rate our Platform</h4>
+                <p>How do you like using our study notes today?</p>
+            </div>
+
+            <div class="floating-card card-3">
+                <h4>Select Your Region</h4>
+                <div class="dropdown-mock">
+                    <span>Grade 11 - O/L Tamil Medium</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
         </div>
     </section>
 
