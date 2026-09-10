@@ -5,11 +5,17 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
+/* Galaxy Live Wallpaper Background Effect */
 body {
-    background-color: #0b0f19;
+    background-color: #050814;
     background-image: 
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
+        radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.25) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 50%),
+        radial-gradient(white 1px, transparent 0),
+        radial-gradient(white 1.5px, transparent 0);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 50px 50px, 100px 100px;
+    background-position: 0 0, 0 0, 0 0, 0 0, 25px 25px;
     color: #94a3b8;
     min-height: 100vh;
     overflow-x: hidden;
@@ -94,10 +100,11 @@ body {
 /* Search Box */
 .subscribe-box {
     display: flex;
-    background: #0f172a;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
     padding: 6px;
     border-radius: 40px;
-    box-shadow: inset 4px 4px 8px #070b14, inset -4px -4px 8px #17233f;
+    box-shadow: inset 4px 4px 8px #03050b, inset -4px -4px 8px #17233f;
     max-width: 450px;
     margin-bottom: 30px;
 }
@@ -136,14 +143,14 @@ body {
 .social-icons a {
     width: 38px;
     height: 38px;
-    background: #0f172a;
+    background: rgba(15, 23, 42, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     color: #64748b;
     text-decoration: none;
-    box-shadow: 4px 4px 8px #06080e, -4px -4px 8px #182646;
+    box-shadow: 4px 4px 8px #03050b, -4px -4px 8px #182646;
     transition: color 0.3s;
 }
 
@@ -160,14 +167,15 @@ body {
 
 .floating-card {
     position: absolute;
-    background: #0f172a;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 20px;
-    box-shadow: 10px 10px 20px #05080e, -10px -10px 20px #192646;
+    box-shadow: 10px 10px 20px #03050b, -10px -10px 20px #192646;
 }
 
 .card-1 {
-    width: 260px;
+    width: 280px;
     top: 20px;
     right: 20px;
 }
@@ -203,7 +211,7 @@ body {
     display: inline-block;
 }
 
-/* Resources Section Styles (Mobile Friendly Grid) */
+/* Resources Section Styles */
 .resources-section {
     width: 90%;
     max-width: 1200px;
@@ -228,7 +236,6 @@ body {
     padding: 0 10px;
 }
 
-/* மொபைல் போன்களுக்கு உகந்த இடைவெளி மற்றும் கட்டமைப்பு (Grid) */
 .resource-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -236,10 +243,11 @@ body {
 }
 
 .resource-card {
-    background: #0f172a;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(10px);
     border-radius: 18px;
     padding: 24px;
-    box-shadow: 8px 8px 16px #05080e, -8px -8px 16px #192646;
+    box-shadow: 8px 8px 16px #03050b, -8px -8px 16px #192646;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -258,7 +266,7 @@ body {
     padding: 12px;
     border-radius: 12px;
     margin-bottom: 16px;
-    box-shadow: inset 3px 3px 6px #06080e, inset -3px -3px 6px #141f36;
+    box-shadow: inset 3px 3px 6px #03050b, inset -3px -3px 6px #141f36;
 }
 
 .badge {
@@ -297,7 +305,7 @@ body {
     font-weight: 600;
     width: 100%;
     text-align: center;
-    box-shadow: 4px 4px 8px #06080e, -4px -4px 8px #141f36;
+    box-shadow: 4px 4px 8px #03050b, -4px -4px 8px #141f36;
     transition: all 0.2s ease;
 }
 
@@ -307,7 +315,7 @@ body {
     box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
 }
 
-/* சிறிய மொபைல் திரைகளுக்கான கூடுதல் வடிவமைப்பு */
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
     .hero-section {
         flex-direction: column;
@@ -323,6 +331,6 @@ body {
         justify-content: center;
     }
     .hero-right {
-        display: none; /* மொபைலில் இட நெருக்கத்தைத் தவிர்க்க வலது கார்டை மறைக்கிறோம் */
+        display: none;
     }
 }
