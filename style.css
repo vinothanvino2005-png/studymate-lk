@@ -5,7 +5,7 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* Galaxy Live Wallpaper Background Effect */
+/* Animated Live Galaxy Background with Moving Stars */
 body {
     background-color: #050814;
     background-image: 
@@ -14,14 +14,25 @@ body {
         radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 50%),
         radial-gradient(white 1px, transparent 0),
         radial-gradient(white 1.5px, transparent 0);
-    background-size: 100% 100%, 100% 100%, 100% 100%, 50px 50px, 100px 100px;
-    background-position: 0 0, 0 0, 0 0, 0 0, 25px 25px;
+    background-size: 100% 100%, 100% 100%, 100% 100%, 550px 550px, 350px 350px;
+    background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
+    animation: moveGalaxy 60s linear infinite;
     color: #94a3b8;
     min-height: 100vh;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+/* Stars Animation Keyframes */
+@keyframes moveGalaxy {
+    0% {
+        background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
+    }
+    100% {
+        background-position: 0 0, 0 0, 0 0, 550px 550px, -350px 350px;
+    }
 }
 
 /* Navbar */
