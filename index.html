@@ -83,7 +83,7 @@
                 <span class="badge">Grade 11</span>
                 <h3>O/L Mathematics</h3>
                 <p>Term test papers, model questions, and short notes in Tamil medium.</p>
-                <a href="#" class="btn-download"><i class="fa-solid fa-download"></i> Download Notes</a>
+                <a href="pdf/grade11-maths.pdf" class="btn-download" target="_blank"><i class="fa-solid fa-download"></i> Download Notes</a>
             </div>
 
             <!-- Resource Card 2 -->
@@ -161,7 +161,7 @@
         </div>
     </div>
 
-    <!-- JavaScript to handle both Modals -->
+    <!-- JavaScript to handle Modals Correctly -->
     <script>
         const signInNavBtn = document.getElementById('signInNavBtn');
         const signUpNavBtn = document.getElementById('signUpNavBtn');
@@ -172,24 +172,31 @@
         const closeSignIn = document.getElementById('closeSignIn');
         const closeSignUp = document.getElementById('closeSignUp');
 
+        // Open Sign In Modal
         signInNavBtn.addEventListener('click', (e) => {
             e.preventDefault();
             signInModal.style.display = 'flex';
+            signUpModal.style.display = 'none'; // Ensure other is closed
         });
 
+        // Open Sign Up Modal
         signUpNavBtn.addEventListener('click', (e) => {
             e.preventDefault();
             signUpModal.style.display = 'flex';
+            signInModal.style.display = 'none'; // Ensure other is closed
         });
 
+        // Close Sign In Modal
         closeSignIn.addEventListener('click', () => {
             signInModal.style.display = 'none';
         });
 
+        // Close Sign Up Modal
         closeSignUp.addEventListener('click', () => {
             signUpModal.style.display = 'none';
         });
 
+        // Close when clicking outside modal box
         window.addEventListener('click', (e) => {
             if (e.target === signInModal) {
                 signInModal.style.display = 'none';
