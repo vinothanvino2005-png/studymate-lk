@@ -129,12 +129,35 @@
         </div>
     </section>
 
-    <!-- JavaScript for Grade Selection & Live Stars Wallpaper -->
+    <!-- JavaScript for Grade Selection, Search Filter & Live Stars Wallpaper -->
     <script>
         function openGradePage(gradeName) {
             localStorage.setItem('selectedGrade', gradeName);
             window.location.href = 'grade-detail.html';
         }
+
+        // Search Functionality
+        const searchInput = document.querySelector('.subscribe-box input');
+        const searchBtn = document.querySelector('.btn-enter');
+        const resourceCards = document.querySelectorAll('.resource-card');
+
+        function performSearch() {
+            const query = searchInput.value.toLowerCase().trim();
+            resourceCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const desc = card.querySelector('p').textContent.toLowerCase();
+                if (title.includes(query) || desc.includes(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        searchBtn.addEventListener('click', performSearch);
+        searchInput.addEventListener('keyup', () => {
+            performSearch();
+        });
 
         // Generating Dynamic Moving Stars for Live Wallpaper Effect
         const starsContainer = document.getElementById('stars-container');
