@@ -203,30 +203,6 @@ body {
     display: inline-block;
 }
 
-.card-3 {
-    width: 280px;
-    bottom: 10px;
-    left: 20px;
-}
-
-.card-3 h4 {
-    color: #ffffff;
-    font-size: 14px;
-    margin-bottom: 12px;
-}
-
-.dropdown-mock {
-    background: #0b0f19;
-    padding: 12px 15px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
-    color: #cbd5e1;
-    box-shadow: inset 2px 2px 5px #06080e, inset -2px -2px 5px #141f36;
-}
-
 /* Resources Section Styles */
 .resources-section {
     width: 90%;
