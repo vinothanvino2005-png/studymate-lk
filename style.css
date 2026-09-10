@@ -266,6 +266,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .resource-card:hover {
@@ -322,7 +323,85 @@ body {
     transition: all 0.2s ease;
 }
 
-.btn-download:hover {
+.resource-card:hover .btn-download {
+    color: #ffffff;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+/* Modal Styles for Grade Selection */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 8, 14, 0.8);
+    backdrop-filter: blur(5px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-box {
+    background: #0f172a;
+    width: 90%;
+    max-width: 380px;
+    padding: 35px;
+    border-radius: 24px;
+    box-shadow: 15px 15px 30px #05080e, -15px -15px 30px #192646;
+    position: relative;
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: #64748b;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #ffffff;
+}
+
+.modal-box h2 {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.modal-box p {
+    color: #94a3b8;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.grade-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn-grade {
+    background: #0b0f19;
+    color: #cbd5e1;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 4px 4px 8px #06080e, -4px -4px 8px #141f36;
+    transition: all 0.2s ease;
+}
+
+.btn-grade:hover {
     color: #ffffff;
     background: linear-gradient(135deg, #6366f1, #a855f7);
     box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
