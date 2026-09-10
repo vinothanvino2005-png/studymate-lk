@@ -20,7 +20,7 @@
             <a href="#">Help</a>
         </nav>
         <div class="nav-action">
-            <a href="#" class="btn-signup">Login</a>
+            <a href="#" class="btn-signup" id="loginBtn">Login</a>
         </div>
     </header>
 
@@ -114,5 +114,47 @@
         </div>
     </section>
 
+    <!-- Login Modal Popup -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal-box">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <h2>Student Login</h2>
+            <p>Enter your details to access your account</p>
+            
+            <form onsubmit="event.preventDefault();">
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="student@gmail.com">
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="********">
+                </div>
+                <button type="submit" class="btn-submit">Login Now</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle Login Modal Popup -->
+    <script>
+        const loginBtn = document.getElementById('loginBtn');
+        const loginModal = document.getElementById('loginModal');
+        const closeModal = document.getElementById('closeModal');
+
+        loginBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginModal.style.display = 'flex';
+        });
+
+        closeModal.addEventListener('click', () => {
+            loginModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
