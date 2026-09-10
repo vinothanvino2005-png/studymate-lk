@@ -25,7 +25,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 0;
+    padding: 25px 0;
 }
 
 .logo {
@@ -40,7 +40,7 @@ body {
 
 .nav-links {
     display: flex;
-    gap: 40px;
+    gap: 30px;
 }
 
 .nav-links a {
@@ -62,8 +62,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 40px;
-    gap: 50px;
+    margin-top: 20px;
+    gap: 40px;
 }
 
 .hero-left {
@@ -71,7 +71,7 @@ body {
 }
 
 .hero-left h1 {
-    font-size: 46px;
+    font-size: 40px;
     font-weight: 800;
     color: #ffffff;
     line-height: 1.2;
@@ -85,28 +85,28 @@ body {
 }
 
 .hero-left p {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.6;
     color: #94a3b8;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 /* Search Box */
 .subscribe-box {
     display: flex;
     background: #0f172a;
-    padding: 8px;
+    padding: 6px;
     border-radius: 40px;
     box-shadow: inset 4px 4px 8px #070b14, inset -4px -4px 8px #17233f;
     max-width: 450px;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 .subscribe-box input {
     flex: 1;
     background: transparent;
     border: none;
-    padding: 12px 20px;
+    padding: 10px 15px;
     color: #ffffff;
     font-size: 14px;
     outline: none;
@@ -120,7 +120,7 @@ body {
     background: linear-gradient(135deg, #6366f1, #a855f7);
     color: white;
     border: none;
-    padding: 12px 25px;
+    padding: 10px 20px;
     border-radius: 30px;
     font-weight: 600;
     cursor: pointer;
@@ -130,12 +130,12 @@ body {
 /* Social Links */
 .social-icons {
     display: flex;
-    gap: 20px;
+    gap: 15px;
 }
 
 .social-icons a {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     background: #0f172a;
     display: flex;
     align-items: center;
@@ -155,21 +155,21 @@ body {
 .hero-right {
     flex: 1;
     position: relative;
-    height: 380px;
+    height: 300px;
 }
 
 .floating-card {
     position: absolute;
     background: #0f172a;
     border-radius: 20px;
-    padding: 25px;
+    padding: 20px;
     box-shadow: 10px 10px 20px #05080e, -10px -10px 20px #192646;
 }
 
 .card-1 {
-    width: 280px;
-    top: 0;
-    right: 40px;
+    width: 260px;
+    top: 20px;
+    right: 20px;
 }
 
 .card-header {
@@ -178,66 +178,68 @@ body {
     gap: 10px;
     color: #ffffff;
     font-weight: 600;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .card-header i {
     color: #818cf8;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .card-text {
     font-size: 13px;
     color: #94a3b8;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     font-style: italic;
 }
 
 .ai-badge {
     background: rgba(99, 102, 241, 0.15);
     color: #818cf8;
-    padding: 6px 12px;
-    border-radius: 10px;
-    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 11px;
     font-weight: 600;
     display: inline-block;
 }
 
-/* Resources Section Styles */
+/* Resources Section Styles (Mobile Friendly Grid) */
 .resources-section {
     width: 90%;
     max-width: 1200px;
-    margin: 60px auto;
+    margin: 40px auto;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .section-header h2 {
     color: #ffffff;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 800;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .section-header p {
     color: #94a3b8;
-    font-size: 15px;
+    font-size: 14px;
+    padding: 0 10px;
 }
 
+/* மொபைல் போன்களுக்கு உகந்த இடைவெளி மற்றும் கட்டமைப்பு (Grid) */
 .resource-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
 }
 
 .resource-card {
     background: #0f172a;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 10px 10px 20px #05080e, -10px -10px 20px #192646;
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 8px 8px 16px #05080e, -8px -8px 16px #192646;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -246,42 +248,42 @@ body {
 }
 
 .resource-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
 }
 
 .res-icon {
-    font-size: 24px;
+    font-size: 22px;
     color: #818cf8;
     background: #0b0f19;
-    padding: 15px;
+    padding: 12px;
     border-radius: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     box-shadow: inset 3px 3px 6px #06080e, inset -3px -3px 6px #141f36;
 }
 
 .badge {
     background: rgba(129, 140, 248, 0.15);
     color: #818cf8;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
     padding: 4px 10px;
     border-radius: 20px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     text-transform: uppercase;
 }
 
 .resource-card h3 {
     color: #ffffff;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .resource-card p {
     color: #94a3b8;
     font-size: 13px;
     line-height: 1.5;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     flex: 1;
 }
 
@@ -289,7 +291,7 @@ body {
     background: #0b0f19;
     color: #cbd5e1;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 10px 16px;
     border-radius: 12px;
     font-size: 13px;
     font-weight: 600;
@@ -303,4 +305,24 @@ body {
     color: #ffffff;
     background: linear-gradient(135deg, #6366f1, #a855f7);
     box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+/* சிறிய மொபைல் திரைகளுக்கான கூடுதல் வடிவமைப்பு */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-left h1 {
+        font-size: 32px;
+    }
+    .subscribe-box {
+        margin: 0 auto 30px auto;
+    }
+    .social-icons {
+        justify-content: center;
+    }
+    .hero-right {
+        display: none; /* மொபைலில் இட நெருக்கத்தைத் தவிர்க்க வலது கார்டை மறைக்கிறோம் */
+    }
 }
