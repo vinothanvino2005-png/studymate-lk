@@ -10,6 +10,9 @@
 </head>
 <body>
 
+    <!-- Live Stars Container (Live Wallpaper Effect) -->
+    <div id="stars-container"></div>
+
     <!-- Navigation Bar -->
     <header class="navbar">
         <div class="logo">Student<span>Notes.lk</span></div>
@@ -40,7 +43,7 @@
             </div>
         </div>
 
-        <!-- AI Pop-up நீக்கப்பட்டு அழகான Quote கார்டு சேர்க்கப்பட்டுள்ளது -->
+        <!-- Daily Motivation Card -->
         <div class="hero-right">
             <div class="floating-card card-1">
                 <div class="card-header">
@@ -117,11 +120,25 @@
         </div>
     </section>
 
-    <!-- JavaScript to Handle Grade Selection -->
+    <!-- JavaScript for Grade Selection & Live Stars Wallpaper -->
     <script>
         function openGradePage(gradeName) {
             localStorage.setItem('selectedGrade', gradeName);
             window.location.href = 'grade-detail.html';
+        }
+
+        // Generating Dynamic Moving Stars for Live Wallpaper Effect
+        const starsContainer = document.getElementById('stars-container');
+        const numberOfStars = 50;
+
+        for (let i = 0; i < numberOfStars; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            star.style.animationDelay = (Math.random() * 5) + 's';
+            starsContainer.appendChild(star);
         }
     </script>
 </body>
