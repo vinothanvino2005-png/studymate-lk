@@ -115,49 +115,29 @@
         </div>
     </section>
 
-    <!-- Sign In Modal Popup -->
+    <!-- Sign In Modal Popup (Google Only) -->
     <div class="modal-overlay" id="signInModal">
         <div class="modal-box">
             <span class="close-btn" id="closeSignIn">&times;</span>
             <h2>Sign In</h2>
-            <p>Welcome back! Access your notes and account.</p>
+            <p>Welcome back! Sign in securely with your Google account.</p>
             
-            <form onsubmit="event.preventDefault();">
-                <div class="input-group">
-                    <label>Email Address</label>
-                    <input type="email" placeholder="student@gmail.com">
-                </div>
-                <div class="input-group">
-                    <label>Password</label>
-                    <input type="password" placeholder="********">
-                </div>
-                <button type="submit" class="btn-submit">Sign In</button>
-            </form>
+            <button class="btn-google" onclick="alert('Google Sign-In clicked!');">
+                <i class="fa-brands fa-google"></i> Continue with Google
+            </button>
         </div>
     </div>
 
-    <!-- Sign Up Modal Popup -->
+    <!-- Sign Up Modal Popup (Google Only) -->
     <div class="modal-overlay" id="signUpModal">
         <div class="modal-box">
             <span class="close-btn" id="closeSignUp">&times;</span>
             <h2>Create Account</h2>
-            <p>Join StudentNotes.lk to start learning for free.</p>
+            <p>Join StudentNotes.lk instantly using your Gmail account.</p>
             
-            <form onsubmit="event.preventDefault();">
-                <div class="input-group">
-                    <label>Full Name</label>
-                    <input type="text" placeholder="Your Name">
-                </div>
-                <div class="input-group">
-                    <label>Email Address</label>
-                    <input type="email" placeholder="student@gmail.com">
-                </div>
-                <div class="input-group">
-                    <label>Password</label>
-                    <input type="password" placeholder="********">
-                </div>
-                <button type="submit" class="btn-submit">Sign Up</button>
-            </form>
+            <button class="btn-google" onclick="alert('Google Sign-Up clicked!');">
+                <i class="fa-brands fa-google"></i> Sign up with Google
+            </button>
         </div>
     </div>
 
@@ -176,14 +156,14 @@
         signInNavBtn.addEventListener('click', (e) => {
             e.preventDefault();
             signInModal.style.display = 'flex';
-            signUpModal.style.display = 'none'; // Ensure other is closed
+            signUpModal.style.display = 'none';
         });
 
         // Open Sign Up Modal
         signUpNavBtn.addEventListener('click', (e) => {
             e.preventDefault();
             signUpModal.style.display = 'flex';
-            signInModal.style.display = 'none'; // Ensure other is closed
+            signInModal.style.display = 'none';
         });
 
         // Close Sign In Modal
