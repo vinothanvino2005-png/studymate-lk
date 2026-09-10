@@ -1,306 +1,127 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-}
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentNotes.lk | Sri Lanka's Study Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
 
-body {
-    background-color: #0b0f19;
-    background-image: 
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
-    color: #94a3b8;
-    min-height: 100vh;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">Student<span>Notes.lk</span></div>
+        <nav class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="#resources">Grades</a>
+            <a href="#">AI Tutor</a>
+            <a href="#">Help</a>
+        </nav>
+    </header>
 
-/* Navbar */
-.navbar {
-    width: 90%;
-    max-width: 1200px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 0;
-}
+    <!-- Main Hero Section -->
+    <section class="hero-section">
+        <div class="hero-left">
+            <h1>The Ultimate Guide <br>To Sri Lankan <br><span>Student Studies</span></h1>
+            <p>Access high-quality School Notes, Term Papers, and AI-powered learning tools designed uniquely for your academic success.</p>
+            
+            <div class="subscribe-box">
+                <input type="text" placeholder="Search notes, grades, past papers...">
+                <button class="btn-enter">Search</button>
+            </div>
 
-.logo {
-    font-size: 20px;
-    font-weight: 800;
-    color: #ffffff;
-}
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
 
-.logo span {
-    color: #818cf8;
-}
+        <div class="hero-right">
+            <div class="floating-card card-1">
+                <div class="card-header">
+                    <i class="fa-solid fa-brain"></i>
+                    <span>AI Study Assistant</span>
+                </div>
+                <p class="card-text">"இந்த பாடத்தை தமிழில் விளக்கி கூறு"</p>
+                <div class="ai-badge">Ask AI Tutor 24/7</div>
+            </div>
+        </div>
+    </section>
 
-.nav-links {
-    display: flex;
-    gap: 40px;
-}
+    <!-- Resources Section - Grade 6 to Grade 11 Cards -->
+    <section class="resources-section" id="resources">
+        <div class="section-header">
+            <h2>Select Your Grade</h2>
+            <p>Choose your grade to view study resources, term papers, and notes instantly.</p>
+        </div>
 
-.nav-links a {
-    text-decoration: none;
-    color: #64748b;
-    font-size: 15px;
-    font-weight: 500;
-    transition: color 0.3s;
-}
+        <div class="resource-grid">
+            <!-- Grade 6 -->
+            <div class="resource-card" onclick="openGradePage('Grade 6')">
+                <div class="res-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span class="badge">Grade Level</span>
+                <h3>Grade 6</h3>
+                <p>Term test papers, unit-wise notes, and model questions for Grade 6.</p>
+                <div class="btn-download"><i class="fa-solid fa-arrow-right"></i> Open Grade 6</div>
+            </div>
 
-.nav-links a:hover, .nav-links a.active {
-    color: #ffffff;
-}
+            <!-- Grade 7 -->
+            <div class="resource-card" onclick="openGradePage('Grade 7')">
+                <div class="res-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span class="badge">Grade Level</span>
+                <h3>Grade 7</h3>
+                <p>Term test papers, unit-wise notes, and model questions for Grade 7.</p>
+                <div class="btn-download"><i class="fa-solid fa-arrow-right"></i> Open Grade 7</div>
+            </div>
 
-/* Hero Section Layout */
-.hero-section {
-    width: 90%;
-    max-width: 1200px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 40px;
-    gap: 50px;
-}
+            <!-- Grade 8 -->
+            <div class="resource-card" onclick="openGradePage('Grade 8')">
+                <div class="res-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span class="badge">Grade Level</span>
+                <h3>Grade 8</h3>
+                <p>Term test papers, unit-wise notes, and model questions for Grade 8.</p>
+                <div class="btn-download"><i class="fa-solid fa-arrow-right"></i> Open Grade 8</div>
+            </div>
 
-.hero-left {
-    flex: 1;
-}
+            <!-- Grade 9 -->
+            <div class="resource-card" onclick="openGradePage('Grade 9')">
+                <div class="res-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span class="badge">Grade Level</span>
+                <h3>Grade 9</h3>
+                <p>Term test papers, unit-wise notes, and model questions for Grade 9.</p>
+                <div class="btn-download"><i class="fa-solid fa-arrow-right"></i> Open Grade 9</div>
+            </div>
 
-.hero-left h1 {
-    font-size: 46px;
-    font-weight: 800;
-    color: #ffffff;
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
+            <!-- Grade 10 -->
+            <div class="resource-card" onclick="openGradePage('Grade 10')">
+                <div class="res-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span class="badge">Grade Level</span>
+                <h3>Grade 10</h3>
+                <p>Term test papers, unit-wise notes, and model questions for Grade 10.</p>
+                <div class="btn-download"><i class="fa-solid fa-arrow-right"></i> Open Grade 10</div>
+            </div>
 
-.hero-left h1 span {
-    background: linear-gradient(135deg, #818cf8, #c084fc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+            <!-- Grade 11 -->
+            <div class="resource-card" onclick="openGradePage('Grade 11')">
+                <div class="res-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span class="badge">Grade Level</span>
+                <h3>Grade 11</h3>
+                <p>O/L past papers, theory notes, and structured questions for Grade 11.</p>
+                <div class="btn-download"><i class="fa-solid fa-arrow-right"></i> Open Grade 11</div>
+            </div>
+        </div>
+    </section>
 
-.hero-left p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #94a3b8;
-    margin-bottom: 35px;
-}
-
-/* Search Box */
-.subscribe-box {
-    display: flex;
-    background: #0f172a;
-    padding: 8px;
-    border-radius: 40px;
-    box-shadow: inset 4px 4px 8px #070b14, inset -4px -4px 8px #17233f;
-    max-width: 450px;
-    margin-bottom: 35px;
-}
-
-.subscribe-box input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    padding: 12px 20px;
-    color: #ffffff;
-    font-size: 14px;
-    outline: none;
-}
-
-.subscribe-box input::placeholder {
-    color: #475569;
-}
-
-.btn-enter {
-    background: linear-gradient(135deg, #6366f1, #a855f7);
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 30px;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
-}
-
-/* Social Links */
-.social-icons {
-    display: flex;
-    gap: 20px;
-}
-
-.social-icons a {
-    width: 40px;
-    height: 40px;
-    background: #0f172a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    color: #64748b;
-    text-decoration: none;
-    box-shadow: 4px 4px 8px #06080e, -4px -4px 8px #182646;
-    transition: color 0.3s;
-}
-
-.social-icons a:hover {
-    color: #818cf8;
-}
-
-/* Right Side Cards */
-.hero-right {
-    flex: 1;
-    position: relative;
-    height: 380px;
-}
-
-.floating-card {
-    position: absolute;
-    background: #0f172a;
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: 10px 10px 20px #05080e, -10px -10px 20px #192646;
-}
-
-.card-1 {
-    width: 280px;
-    top: 0;
-    right: 40px;
-}
-
-.card-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #ffffff;
-    font-weight: 600;
-    margin-bottom: 12px;
-}
-
-.card-header i {
-    color: #818cf8;
-    font-size: 18px;
-}
-
-.card-text {
-    font-size: 13px;
-    color: #94a3b8;
-    margin-bottom: 15px;
-    font-style: italic;
-}
-
-.ai-badge {
-    background: rgba(99, 102, 241, 0.15);
-    color: #818cf8;
-    padding: 6px 12px;
-    border-radius: 10px;
-    font-size: 12px;
-    font-weight: 600;
-    display: inline-block;
-}
-
-/* Resources Section Styles */
-.resources-section {
-    width: 90%;
-    max-width: 1200px;
-    margin: 60px auto;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.section-header h2 {
-    color: #ffffff;
-    font-size: 32px;
-    font-weight: 800;
-    margin-bottom: 10px;
-}
-
-.section-header p {
-    color: #94a3b8;
-    font-size: 15px;
-}
-
-.resource-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
-}
-
-.resource-card {
-    background: #0f172a;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 10px 10px 20px #05080e, -10px -10px 20px #192646;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-}
-
-.resource-card:hover {
-    transform: translateY(-5px);
-}
-
-.res-icon {
-    font-size: 24px;
-    color: #818cf8;
-    background: #0b0f19;
-    padding: 15px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    box-shadow: inset 3px 3px 6px #06080e, inset -3px -3px 6px #141f36;
-}
-
-.badge {
-    background: rgba(129, 140, 248, 0.15);
-    color: #818cf8;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 20px;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-}
-
-.resource-card h3 {
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.resource-card p {
-    color: #94a3b8;
-    font-size: 13px;
-    line-height: 1.5;
-    margin-bottom: 25px;
-    flex: 1;
-}
-
-.btn-download {
-    background: #0b0f19;
-    color: #cbd5e1;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 12px;
-    font-size: 13px;
-    font-weight: 600;
-    width: 100%;
-    text-align: center;
-    box-shadow: 4px 4px 8px #06080e, -4px -4px 8px #141f36;
-    transition: all 0.2s ease;
-}
-
-.resource-card:hover .btn-download {
-    color: #ffffff;
-    background: linear-gradient(135deg, #6366f1, #a855f7);
-    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
-}
+    <!-- JavaScript to Handle Grade Selection -->
+    <script>
+        function openGradePage(gradeName) {
+            localStorage.setItem('selectedGrade', gradeName);
+            window.location.href = 'grade-detail.html';
+        }
+    </script>
+</body>
+</html>
