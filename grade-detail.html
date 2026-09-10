@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Resources | StudentNotes.lk</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">Student<span>Notes.lk</span></div>
+        <nav class="nav-links">
+            <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        </nav>
+    </header>
+
+    <!-- Grade Content Section -->
+    <section class="resources-section">
+        <div class="section-header">
+            <h2 id="gradeTitle">Loading Grade...</h2>
+            <p>Access and download all study materials, notes, and past papers below.</p>
+        </div>
+
+        <div class="resource-grid">
+            <!-- Sample PDF Card -->
+            <div class="resource-card" onclick="alert('Downloading PDF for this grade...')">
+                <div class="res-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                <span class="badge">PDF Document</span>
+                <h3>Download Term Test Papers</h3>
+                <p>Click here to open and download the complete PDF notes and papers.</p>
+                <div class="btn-download"><i class="fa-solid fa-download"></i> Open PDF</div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const grade = localStorage.getItem('selectedGrade') || 'Grade';
+        document.getElementById('gradeTitle').innerText = grade + ' Study Resources';
+    </script>
+</body>
+</html>
