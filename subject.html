@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Grade | StudentNotes.lk</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">Student<span>Notes.lk</span></div>
+        <nav class="nav-links">
+            <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        </nav>
+    </header>
+
+    <!-- New Page UI for Grade Selection -->
+    <section class="resources-section">
+        <div class="section-header">
+            <h2 id="pageSubjectTitle">Loading Subject...</h2>
+            <p id="pageSubjectDesc">Choose your grade to open and download the respective PDF notes.</p>
+        </div>
+
+        <div class="resource-grid">
+            <!-- Grade 10 Card -->
+            <div class="resource-card" onclick="openPDF('Grade 10')">
+                <div class="res-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                <span class="badge">Grade 10</span>
+                <h3>Grade 10 Notes & Papers</h3>
+                <p>Access term test papers, unit notes, and model questions for Grade 10.</p>
+                <div class="btn-download"><i class="fa-solid fa-download"></i> Open Grade 10 PDF</div>
+            </div>
+
+            <!-- Grade 11 Card -->
+            <div class="resource-card" onclick="openPDF('Grade 11')">
+                <div class="res-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                <span class="badge">Grade 11</span>
+                <h3>Grade 11 Notes & Papers</h3>
+                <p>Access O/L past papers, theory notes, and structured questions.</p>
+                <div class="btn-download"><i class="fa-solid fa-download"></i> Open Grade 11 PDF</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript to Handle Dynamic Content and PDF Opening -->
+    <script>
+        // முகப்புப் பக்கத்தில் இருந்து அனுப்பப்பட்ட பாடத்தின் பெயர்களைப் பெறுகிறோம்
+        const subjectKey = localStorage.getItem('currentSubjectKey') || 'Mathematics';
+        const subjectName = localStorage.getItem('currentSubjectName') || 'O/L Mathematics';
+        const subjectDesc = localStorage.getItem('currentSubjectDesc') || '';
+
+        // பக்கத்தில் அந்தத் தகவல்களைக் காட்டுகிறோம்
+        document.getElementById('pageSubjectTitle').innerText = subjectName + ' - Select Grade';
+        document.getElementById('pageSubjectDesc').innerText = subjectDesc + ' Choose your grade below:';
+
+        function openPDF(grade) {
+            let pdfUrl = '';
+
+            // எந்தப் பாடத்திற்கு எந்த கிரேடு என்பதைப் பொறுத்து PDF லிங்கை மாற்றலாம்
+            if (subjectKey === 'Mathematics' && grade === 'Grade 11') {
+                pdfUrl = 'pdf/maths-grade11.pdf';
+            } else if (subjectKey === 'Mathematics' && grade === 'Grade 10') {
+                pdfUrl = 'pdf/maths-grade10.pdf';
+            } else if (subjectKey === 'Science' && grade === 'Grade 11') {
+                pdfUrl = 'pdf/science-grade11.pdf';
+            } else if (subjectKey === 'ICT' && grade === 'Grade 11') {
+                pdfUrl = 'pdf/ict-grade11.pdf';
+            } else {
+                pdfUrl = 'pdf/sample.pdf'; // இயல்புநிலை மாதிரி PDF
+            }
+
+            // புதிய புதிய பக்கத்தில் / டேப்பில் PDF ஓபன் ஆகும்
+            window.open(pdfUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
