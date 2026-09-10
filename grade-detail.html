@@ -22,24 +22,41 @@
     <section class="resources-section">
         <div class="section-header">
             <h2 id="gradeTitle">Loading Grade...</h2>
-            <p>Access and download all study materials, notes, and past papers below.</p>
+            <p>Access and download 1st Term Exam Papers from the Google Drive link below.</p>
         </div>
 
         <div class="resource-grid">
-            <!-- Sample PDF Card -->
-            <div class="resource-card" onclick="alert('Downloading PDF for this grade...')">
-                <div class="res-icon"><i class="fa-solid fa-file-pdf"></i></div>
-                <span class="badge">PDF Document</span>
-                <h3>Download Term Test Papers</h3>
-                <p>Click here to open and download the complete PDF notes and papers.</p>
-                <div class="btn-download"><i class="fa-solid fa-download"></i> Open PDF</div>
+            <!-- Google Drive PDF Card -->
+            <div class="resource-card" id="driveCard" onclick="openDriveLink()">
+                <div class="res-icon"><i class="fa-brands fa-google-drive"></i></div>
+                <span class="badge">Google Drive</span>
+                <h3 id="cardHeading">1st Term Exam Papers</h3>
+                <p>Click here to open and download the official term test papers folder.</p>
+                <div class="btn-download"><i class="fa-solid fa-download"></i> Open Drive Folder</div>
             </div>
         </div>
     </section>
 
+    <!-- JavaScript to Handle Dynamic Google Drive Links -->
     <script>
-        const grade = localStorage.getItem('selectedGrade') || 'Grade';
+        const grade = localStorage.getItem('selectedGrade') || 'Grade 6';
         document.getElementById('gradeTitle').innerText = grade + ' Study Resources';
+        document.getElementById('cardHeading').innerText = grade + ' - 1st Term Exam Papers';
+
+        // கிரேக்குகளுக்குரிய கூகுள் டிரைவ் லிங்க்குகள்
+        const driveLinks = {
+            'Grade 6': 'https://drive.google.com/folderview?id=1Rwu2CPFzIO7NW0A8J1mruvEb4_7J2nQv',
+            'Grade 7': 'https://drive.google.com/folderview?id=1YGjlgexGqmnx0Pw8IN1BsQ9M-sdFrLII',
+            'Grade 8': 'https://drive.google.com/folderview?id=1dp2YvpPgHMYKSIJCwHZbxQXo40C-EHZp',
+            'Grade 9': 'https://drive.google.com/folderview?id=1jgKO3CdVkZwXrS2Vzg7PZ2feSZEXf3Ty',
+            'Grade 10': 'https://drive.google.com/folderview?id=1pXZJu2em-ozp0WoxbdpVpNBpwGF8GO8_',
+            'Grade 11': 'https://drive.google.com/folderview?id=1yCHt95s1fdOvilTYOXz2Qvb9kwfTKQc8'
+        };
+
+        function openDriveLink() {
+            const url = driveLinks[grade] || 'https://drive.google.com/';
+            window.open(url, '_blank');
+        }
     </script>
 </body>
 </html>
