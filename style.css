@@ -5,19 +5,17 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* Animated Live Galaxy Background with Moving Stars */
+/* Modern Glassmorphism & Animated Galaxy Background */
 body {
-    background-color: #050814;
+    background-color: #030712;
     background-image: 
-        radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.25) 0%, transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.25) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.2) 0%, transparent 40%),
         radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 50%),
-        radial-gradient(white 1px, transparent 0),
-        radial-gradient(white 1.5px, transparent 0);
-    background-size: 100% 100%, 100% 100%, 100% 100%, 550px 550px, 350px 350px;
-    background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
-    animation: moveGalaxy 60s linear infinite;
-    color: #94a3b8;
+        radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 0);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 40px 40px;
+    animation: moveGalaxy 40s linear infinite;
+    color: #e2e8f0;
     min-height: 100vh;
     overflow-x: hidden;
     display: flex;
@@ -25,14 +23,9 @@ body {
     align-items: center;
 }
 
-/* Stars Animation Keyframes */
 @keyframes moveGalaxy {
-    0% {
-        background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
-    }
-    100% {
-        background-position: 0 0, 0 0, 0 0, 550px 550px, -350px 350px;
-    }
+    0% { background-position: 0 0, 0 0, 0 0, 0 0; }
+    100% { background-position: 0 0, 0 0, 0 0, 40px 40px; }
 }
 
 /* Navbar */
@@ -46,13 +39,16 @@ body {
 }
 
 .logo {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 800;
     color: #ffffff;
+    letter-spacing: -0.5px;
 }
 
 .logo span {
-    color: #818cf8;
+    background: linear-gradient(135deg, #818cf8, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .nav-links {
@@ -62,7 +58,7 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: #64748b;
+    color: #94a3b8;
     font-size: 15px;
     font-weight: 500;
     transition: color 0.3s;
@@ -72,14 +68,14 @@ body {
     color: #ffffff;
 }
 
-/* Hero Section Layout */
+/* Hero Section */
 .hero-section {
     width: 90%;
     max-width: 1200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 30px;
     gap: 40px;
 }
 
@@ -88,88 +84,96 @@ body {
 }
 
 .hero-left h1 {
-    font-size: 40px;
+    font-size: 45px;
     font-weight: 800;
     color: #ffffff;
-    line-height: 1.2;
+    line-height: 1.15;
     margin-bottom: 20px;
 }
 
 .hero-left h1 span {
-    background: linear-gradient(135deg, #818cf8, #c084fc);
+    background: linear-gradient(135deg, #818cf8, #ec4899);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .hero-left p {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.6;
     color: #94a3b8;
     margin-bottom: 30px;
 }
 
-/* Search Box */
+/* Modern Glass Search Box */
 .subscribe-box {
     display: flex;
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(10px);
-    padding: 6px;
-    border-radius: 40px;
-    box-shadow: inset 4px 4px 8px #03050b, inset -4px -4px 8px #17233f;
-    max-width: 450px;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px;
+    border-radius: 50px;
+    max-width: 480px;
     margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
 }
 
 .subscribe-box input {
     flex: 1;
     background: transparent;
     border: none;
-    padding: 10px 15px;
+    padding: 10px 20px;
     color: #ffffff;
-    font-size: 14px;
+    font-size: 15px;
     outline: none;
 }
 
 .subscribe-box input::placeholder {
-    color: #475569;
+    color: #64748b;
 }
 
 .btn-enter {
-    background: linear-gradient(135deg, #6366f1, #a855f7);
+    background: linear-gradient(135deg, #6366f1, #ec4899);
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 30px;
+    padding: 10px 24px;
+    border-radius: 40px;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    transition: opacity 0.3s;
 }
 
-/* Social Links */
+.btn-enter:hover {
+    opacity: 0.9;
+}
+
+/* Social Icons */
 .social-icons {
     display: flex;
     gap: 15px;
 }
 
 .social-icons a {
-    width: 38px;
-    height: 38px;
-    background: rgba(15, 23, 42, 0.8);
+    width: 42px;
+    height: 42px;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    color: #64748b;
+    color: #94a3b8;
     text-decoration: none;
-    box-shadow: 4px 4px 8px #03050b, -4px -4px 8px #182646;
-    transition: color 0.3s;
+    transition: all 0.3s;
 }
 
 .social-icons a:hover {
-    color: #818cf8;
+    color: #ffffff;
+    border-color: #818cf8;
+    transform: translateY(-2px);
 }
 
-/* Right Side Cards */
+/* Right Side Floating Card */
 .hero-right {
     flex: 1;
     position: relative;
@@ -178,15 +182,16 @@ body {
 
 .floating-card {
     position: absolute;
-    background: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 10px 10px 20px #03050b, -10px -10px 20px #192646;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .card-1 {
-    width: 280px;
+    width: 300px;
     top: 20px;
     right: 20px;
 }
@@ -197,103 +202,109 @@ body {
     gap: 10px;
     color: #ffffff;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .card-header i {
-    color: #818cf8;
-    font-size: 16px;
+    color: #ec4899;
+    font-size: 18px;
 }
 
 .card-text {
-    font-size: 13px;
-    color: #94a3b8;
-    margin-bottom: 12px;
+    font-size: 14px;
+    color: #cbd5e1;
+    margin-bottom: 16px;
     font-style: italic;
+    line-height: 1.5;
 }
 
 .ai-badge {
-    background: rgba(99, 102, 241, 0.15);
-    color: #818cf8;
-    padding: 5px 10px;
-    border-radius: 8px;
+    background: rgba(236, 72, 153, 0.15);
+    color: #ec4899;
+    border: 1px solid rgba(236, 72, 153, 0.3);
+    padding: 6px 12px;
+    border-radius: 10px;
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 700;
     display: inline-block;
 }
 
-/* Resources Section Styles */
+/* Resources Section */
 .resources-section {
     width: 90%;
     max-width: 1200px;
-    margin: 40px auto;
+    margin: 60px auto;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .section-header h2 {
     color: #ffffff;
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 800;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .section-header p {
     color: #94a3b8;
-    font-size: 14px;
-    padding: 0 10px;
+    font-size: 15px;
 }
 
 .resource-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
 }
 
+/* Modern Glass Cards */
 .resource-card {
-    background: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(10px);
-    border-radius: 18px;
-    padding: 24px;
-    box-shadow: 8px 8px 16px #03050b, -8px -8px 16px #192646;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
     cursor: pointer;
 }
 
 .resource-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
+    border-color: rgba(129, 140, 248, 0.4);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
 }
 
 .res-icon {
-    font-size: 22px;
+    font-size: 20px;
     color: #818cf8;
-    background: #0b0f19;
-    padding: 12px;
-    border-radius: 12px;
-    margin-bottom: 16px;
-    box-shadow: inset 3px 3px 6px #03050b, inset -3px -3px 6px #141f36;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    padding: 14px;
+    border-radius: 14px;
+    margin-bottom: 18px;
 }
 
 .badge {
-    background: rgba(129, 140, 248, 0.15);
+    background: rgba(129, 140, 248, 0.12);
     color: #818cf8;
+    border: 1px solid rgba(129, 140, 248, 0.2);
     font-size: 10px;
     font-weight: 700;
-    padding: 4px 10px;
+    padding: 4px 12px;
     border-radius: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     text-transform: uppercase;
 }
 
 .resource-card h3 {
     color: #ffffff;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 700;
     margin-bottom: 8px;
 }
@@ -301,28 +312,29 @@ body {
 .resource-card p {
     color: #94a3b8;
     font-size: 13px;
-    line-height: 1.5;
-    margin-bottom: 20px;
+    line-height: 1.6;
+    margin-bottom: 24px;
     flex: 1;
 }
 
 .btn-download {
-    background: #0b0f19;
-    color: #cbd5e1;
+    background: rgba(255, 255, 255, 0.05);
+    color: #e2e8f0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     text-decoration: none;
-    padding: 10px 16px;
+    padding: 10px 18px;
     border-radius: 12px;
     font-size: 13px;
     font-weight: 600;
     width: 100%;
     text-align: center;
-    box-shadow: 4px 4px 8px #03050b, -4px -4px 8px #141f36;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .resource-card:hover .btn-download {
     color: #ffffff;
-    background: linear-gradient(135deg, #6366f1, #a855f7);
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    border-color: transparent;
     box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
 }
 
@@ -333,7 +345,7 @@ body {
         text-align: center;
     }
     .hero-left h1 {
-        font-size: 32px;
+        font-size: 34px;
     }
     .subscribe-box {
         margin: 0 auto 30px auto;
