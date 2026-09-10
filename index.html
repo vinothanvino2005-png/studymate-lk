@@ -19,8 +19,9 @@
             <a href="#">AI Tutor</a>
             <a href="#">Help</a>
         </nav>
-        <div class="nav-action">
-            <a href="#" class="btn-signup" id="loginBtn">Login</a>
+        <div class="nav-actions">
+            <a href="#" class="btn-signin-nav" id="signInNavBtn">Sign In</a>
+            <a href="#" class="btn-signup-nav" id="signUpNavBtn">Sign Up</a>
         </div>
     </header>
 
@@ -114,12 +115,12 @@
         </div>
     </section>
 
-    <!-- Login Modal Popup -->
-    <div class="modal-overlay" id="loginModal">
+    <!-- Sign In Modal Popup -->
+    <div class="modal-overlay" id="signInModal">
         <div class="modal-box">
-            <span class="close-btn" id="closeModal">&times;</span>
-            <h2>Student Login</h2>
-            <p>Enter your details to access your account</p>
+            <span class="close-btn" id="closeSignIn">&times;</span>
+            <h2>Sign In</h2>
+            <p>Welcome back! Access your notes and account.</p>
             
             <form onsubmit="event.preventDefault();">
                 <div class="input-group">
@@ -130,29 +131,71 @@
                     <label>Password</label>
                     <input type="password" placeholder="********">
                 </div>
-                <button type="submit" class="btn-submit">Login Now</button>
+                <button type="submit" class="btn-submit">Sign In</button>
             </form>
         </div>
     </div>
 
-    <!-- JavaScript to handle Login Modal Popup -->
-    <script>
-        const loginBtn = document.getElementById('loginBtn');
-        const loginModal = document.getElementById('loginModal');
-        const closeModal = document.getElementById('closeModal');
+    <!-- Sign Up Modal Popup -->
+    <div class="modal-overlay" id="signUpModal">
+        <div class="modal-box">
+            <span class="close-btn" id="closeSignUp">&times;</span>
+            <h2>Create Account</h2>
+            <p>Join StudentNotes.lk to start learning for free.</p>
+            
+            <form onsubmit="event.preventDefault();">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Your Name">
+                </div>
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="student@gmail.com">
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="********">
+                </div>
+                <button type="submit" class="btn-submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
 
-        loginBtn.addEventListener('click', (e) => {
+    <!-- JavaScript to handle both Modals -->
+    <script>
+        const signInNavBtn = document.getElementById('signInNavBtn');
+        const signUpNavBtn = document.getElementById('signUpNavBtn');
+        
+        const signInModal = document.getElementById('signInModal');
+        const signUpModal = document.getElementById('signUpModal');
+        
+        const closeSignIn = document.getElementById('closeSignIn');
+        const closeSignUp = document.getElementById('closeSignUp');
+
+        signInNavBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            loginModal.style.display = 'flex';
+            signInModal.style.display = 'flex';
         });
 
-        closeModal.addEventListener('click', () => {
-            loginModal.style.display = 'none';
+        signUpNavBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            signUpModal.style.display = 'flex';
+        });
+
+        closeSignIn.addEventListener('click', () => {
+            signInModal.style.display = 'none';
+        });
+
+        closeSignUp.addEventListener('click', () => {
+            signUpModal.style.display = 'none';
         });
 
         window.addEventListener('click', (e) => {
-            if (e.target === loginModal) {
-                loginModal.style.display = 'none';
+            if (e.target === signInModal) {
+                signInModal.style.display = 'none';
+            }
+            if (e.target === signUpModal) {
+                signUpModal.style.display = 'none';
             }
         });
     </script>
