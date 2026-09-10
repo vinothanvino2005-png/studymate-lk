@@ -19,10 +19,6 @@
             <a href="#">AI Tutor</a>
             <a href="#">Help</a>
         </nav>
-        <div class="nav-actions">
-            <a href="#" class="btn-signin-nav" id="signInNavBtn">Sign In</a>
-            <a href="#" class="btn-signup-nav" id="signUpNavBtn">Sign Up</a>
-        </div>
     </header>
 
     <!-- Main Hero Section -->
@@ -115,76 +111,5 @@
         </div>
     </section>
 
-    <!-- Sign In Modal Popup (Google Only) -->
-    <div class="modal-overlay" id="signInModal">
-        <div class="modal-box">
-            <span class="close-btn" id="closeSignIn">&times;</span>
-            <h2>Sign In</h2>
-            <p>Welcome back! Sign in securely with your Google account.</p>
-            
-            <button class="btn-google" onclick="alert('Google Sign-In clicked!');">
-                <i class="fa-brands fa-google"></i> Continue with Google
-            </button>
-        </div>
-    </div>
-
-    <!-- Sign Up Modal Popup (Google Only) -->
-    <div class="modal-overlay" id="signUpModal">
-        <div class="modal-box">
-            <span class="close-btn" id="closeSignUp">&times;</span>
-            <h2>Create Account</h2>
-            <p>Join StudentNotes.lk instantly using your Gmail account.</p>
-            
-            <button class="btn-google" onclick="alert('Google Sign-Up clicked!');">
-                <i class="fa-brands fa-google"></i> Sign up with Google
-            </button>
-        </div>
-    </div>
-
-    <!-- JavaScript to handle Modals Correctly -->
-    <script>
-        const signInNavBtn = document.getElementById('signInNavBtn');
-        const signUpNavBtn = document.getElementById('signUpNavBtn');
-        
-        const signInModal = document.getElementById('signInModal');
-        const signUpModal = document.getElementById('signUpModal');
-        
-        const closeSignIn = document.getElementById('closeSignIn');
-        const closeSignUp = document.getElementById('closeSignUp');
-
-        // Open Sign In Modal
-        signInNavBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            signInModal.style.display = 'flex';
-            signUpModal.style.display = 'none';
-        });
-
-        // Open Sign Up Modal
-        signUpNavBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            signUpModal.style.display = 'flex';
-            signInModal.style.display = 'none';
-        });
-
-        // Close Sign In Modal
-        closeSignIn.addEventListener('click', () => {
-            signInModal.style.display = 'none';
-        });
-
-        // Close Sign Up Modal
-        closeSignUp.addEventListener('click', () => {
-            signUpModal.style.display = 'none';
-        });
-
-        // Close when clicking outside modal box
-        window.addEventListener('click', (e) => {
-            if (e.target === signInModal) {
-                signInModal.style.display = 'none';
-            }
-            if (e.target === signUpModal) {
-                signUpModal.style.display = 'none';
-            }
-        });
-    </script>
 </body>
 </html>
