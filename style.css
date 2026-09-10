@@ -55,16 +55,41 @@ body {
     color: #ffffff;
 }
 
-.btn-signup {
-    background: #111827;
-    color: #ffffff;
-    padding: 10px 25px;
+.nav-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-signin-nav {
+    background: #0f172a;
+    color: #cbd5e1;
+    padding: 10px 20px;
     border-radius: 30px;
     text-decoration: none;
     font-weight: 600;
     font-size: 14px;
-    box-shadow: 5px 5px 10px #06080e, -5px -5px 10px #162034;
-    cursor: pointer;
+    box-shadow: 4px 4px 8px #06080e, -4px -4px 8px #141f36;
+    transition: color 0.2s;
+}
+
+.btn-signin-nav:hover {
+    color: #ffffff;
+}
+
+.btn-signup-nav {
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    color: #ffffff;
+    padding: 10px 22px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    transition: opacity 0.2s;
+}
+
+.btn-signup-nav:hover {
+    opacity: 0.9;
 }
 
 /* Hero Section Layout */
@@ -340,7 +365,7 @@ body {
     box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
 }
 
-/* Login Modal Styles */
+/* Modal Styles */
 .modal-overlay {
     position: fixed;
     top: 0;
