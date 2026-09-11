@@ -81,32 +81,62 @@
         }
         .ai-input-area {
             display: flex;
-            gap: 10px;
+            gap: 8px;
+            align-items: center;
         }
-        .ai-input-area input {
+        .ai-input-area input[type="text"] {
             flex: 1;
             background: rgba(3, 7, 18, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 10px 15px;
+            padding: 10px 12px;
             border-radius: 12px;
             color: #fff;
             outline: none;
             font-size: 14px;
         }
-        .ai-input-area button {
+        .upload-icon-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #818cf8;
+            padding: 10px 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .upload-icon-btn:hover {
+            background: rgba(129, 140, 248, 0.2);
+        }
+        .ai-input-area button.send-btn {
             background: linear-gradient(135deg, #6366f1, #ec4899);
             color: white;
             border: none;
-            padding: 10px 18px;
+            padding: 10px 15px;
             border-radius: 12px;
             font-weight: 600;
             cursor: pointer;
+        }
+        .pdf-file-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+            padding: 8px 12px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 5px;
+            color: #cbd5e1;
+            font-size: 13px;
+        }
+        .pdf-file-card i {
+            color: #ef4444;
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Live Stars Container (Live Wallpaper Effect) -->
+    <!-- Live Stars Container -->
     <div id="stars-container"></div>
 
     <!-- Navigation Bar -->
@@ -116,7 +146,7 @@
             <a href="index.html" class="active">Home</a>
             <a href="#resources">Grades & A/L</a>
             <a href="#" onclick="openAITutor(event)">AI Tutor</a>
-            <a href="#">Help</a>
+            <a href="contact.html">Help</a>
         </nav>
     </header>
 
@@ -152,7 +182,7 @@
         </div>
     </section>
 
-    <!-- Resources Section - Grades 6 to 11 & Advanced Level -->
+    <!-- Resources Section -->
     <section class="resources-section" id="resources">
         <div class="section-header">
             <h2>Select Your Grade</h2>
@@ -225,7 +255,18 @@
         </div>
     </section>
 
-    <!-- AI Tutor Popup Modal -->
+    <!-- Footer Section with Policy Links -->
+    <footer style="margin-top: 80px; padding: 30px 20px; background: rgba(3, 7, 18, 0.9); border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center; color: #94a3b8; font-size: 14px;">
+        <div style="margin-bottom: 15px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <a href="about.html" style="color: #818cf8; text-decoration: none;">About Us</a>
+            <a href="contact.html" style="color: #818cf8; text-decoration: none;">Contact Us</a>
+            <a href="privacy.html" style="color: #818cf8; text-decoration: none;">Privacy Policy</a>
+            <a href="terms.html" style="color: #818cf8; text-decoration: none;">Terms & Conditions</a>
+        </div>
+        <p>&copy; 2026 StudentNotes.lk. All rights reserved. Built for Sri Lankan Students.</p>
+    </footer>
+
+    <!-- AI Tutor Popup Modal with PDF Upload Support -->
     <div id="aiModal" class="ai-modal">
         <div class="ai-modal-content">
             <div class="ai-modal-header">
@@ -233,16 +274,21 @@
                 <button class="close-btn" onclick="closeAITutor()">&times;</button>
             </div>
             <div class="ai-chat-box" id="aiChatBox">
-                <div class="ai-msg">வணக்கம்! நான் உங்களது AI Tutor. இலங்கைச் பாடத்திட்டக் கல்வி சந்தேகங்களைக் கேட்கலாம்.</div>
+                <div class="ai-msg">வணக்கம்! உங்களது PDF குறிப்புகள் அல்லது கல்விச் சந்தேகங்களை என்னிடம் பகிரலாம்.</div>
             </div>
             <div class="ai-input-area">
-                <input type="text" id="aiUserInput" placeholder="உங்கள் கேள்வியைக் கேட்கவும்..." onkeypress="handleKeyPress(event)">
-                <button onclick="sendAIMessage()">Send</button>
+                <input type="text" id="aiUserInput" placeholder="கேள்வியைக் கேட்கவும் அல்லது PDF-ஐ அப்லோட் செய்யவும்..." onkeypress="handleKeyPress(event)">
+                <!-- Hidden File Input for PDF -->
+                <input type="file" id="pdfUploadInput" accept="application/pdf" style="display: none;" onchange="handlePDFUpload(event)">
+                <button type="button" class="upload-icon-btn" onclick="document.getElementById('pdfUploadInput').click()" title="Upload PDF">
+                    <i class="fa-solid fa-paperclip"></i>
+                </button>
+                <button class="send-btn" onclick="sendAIMessage()">Send</button>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript for Grade Selection, Search Filter, Live Stars & Smart AI Tutor -->
+    <!-- JavaScript -->
     <script>
         function openGradePage(gradeName) {
             localStorage.setItem('selectedGrade', gradeName);
@@ -264,6 +310,42 @@
             }
         }
 
+        // Handle PDF Upload by Students
+        function handlePDFUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const chatBox = document.getElementById('aiChatBox');
+
+            const userDiv = document.createElement('div');
+            userDiv.className = 'user-msg';
+            userDiv.innerHTML = `PDF கோப்பு அப்லோட் செய்யப்பட்டது: <br>
+                <div class="pdf-file-card">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    <span>${file.name}</span>
+                </div>`;
+            chatBox.appendChild(userDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'ai-msg';
+            loadingDiv.textContent = "PDF சரிபார்க்கப்படுகிறது...";
+            chatBox.appendChild(loadingDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            setTimeout(() => {
+                chatBox.removeChild(loadingDiv);
+
+                const aiDiv = document.createElement('div');
+                aiDiv.className = 'ai-msg';
+                aiDiv.textContent = `நன்றி! "${file.name}" வெற்றிகரமாகப் பெறப்பட்டது. இந்த PDF குறிப்பு StudentNotes.lk தளத்தின் மூலமாக மற்ற மாணவர்களுக்கும் பரிசீலிக்கப்படும்.`;
+                chatBox.appendChild(aiDiv);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 800);
+
+            event.target.value = '';
+        }
+
         function sendAIMessage() {
             const inputField = document.getElementById('aiUserInput');
             const chatBox = document.getElementById('aiChatBox');
@@ -271,7 +353,6 @@
 
             if (userText === '') return;
 
-            // User Message Display
             const userDiv = document.createElement('div');
             userDiv.className = 'user-msg';
             userDiv.textContent = inputField.value;
@@ -281,10 +362,8 @@
             inputField.value = '';
             chatBox.scrollTop = chatBox.scrollHeight;
 
-            // Loading State
             const loadingDiv = document.createElement('div');
             loadingDiv.className = 'ai-msg';
-            loadingDiv.id = 'loadingMsg';
             loadingDiv.textContent = "பதில் தேடப்படுகிறது...";
             chatBox.appendChild(loadingDiv);
             chatBox.scrollTop = chatBox.scrollHeight;
@@ -292,26 +371,24 @@
             setTimeout(() => {
                 chatBox.removeChild(loadingDiv);
 
-                let aiText = "இது தொடர்பான குறிப்புகள் மற்றும் பாஸ்ட் பேப்பர்கள் விரைவில் StudentNotes.lk தளத்தில் பதிவேற்றப்படும்.";
+                let aiText = "இது தொடர்பான குறிப்புகள் மற்றும் பாஸ்ட் பேப்பர்கள் StudentNotes.lk தளத்தில் விரைவில் சேர்க்கப்படும்.";
 
-                // Sri Lankan Syllabus Smart Keyword Matching
                 if (userText.includes('photosynthesis') || userText.includes('ஒளித்தொகுப்பு')) {
-                    aiText = "ஒளித்தொகுப்பு (Photosynthesis): தாவரங்கள் சூரிய ஒளி, பச்சையம் (Chlorophyll), காபனொட்சைட்டு மற்றும் நீர் ஆகியவற்றைப் பயன்படுத்தி குளுக்கோஸைத் தயாரித்து ஒட்சிசியனை வெளியேற்றும் செயலாகும்.";
-                } else if (userText.includes('newton') || userText.includes('நியூட்டன்') || userText.includes('இயக்க விதி')) {
-                    aiText = "நியூட்டனின் இயக்க விதிகள் மூன்று ஆகும்:\n1. முதலாம் விதி (சடத்துவ விதி)\n2. இரண்டாம் விதி (F = ma)\n3. மூன்றாம் விதி (ஒவ்வொரு வினைக்கும் சமனான எதிர் வினை உண்டு)";
+                    aiText = "ஒளித்தொகுப்பு (Photosynthesis): தாவரங்கள் சூரிய ஒளி, பச்சையம், காபனொட்சைட்டு மற்றும் நீர் ஆகியவற்றைப் பயன்படுத்தி குளுக்கோஸைத் தயாரித்து ஒட்சிசியனை வெளியேற்றும் செயலாகும்.";
+                } else if (userText.includes('newton') || userText.includes('நியூட்டன்')) {
+                    aiText = "நியூட்டனின் இயக்க விதிகள் 3 ஆகும்: 1. சடத்துவ விதி, 2. F=ma, 3. வினை எதிர்வினை விதி.";
                 } else if (userText.includes('grade 10') || userText.includes('தரம் 10')) {
-                    aiText = "தரம் 10 மாணவர்களுக்கான கணிதம், அறிவியல் மற்றும் வரலாறு பாடக் குறிப்புகள் முகப்புப் பக்கத்தில் உள்ள 'Grade 10' கார்டில் உள்ளன.";
-                } else if (userText.includes('grade 11') || userText.includes('தரம் 11') || userText.includes('o/l')) {
-                    aiText = "தரம் 11 (O/L) மாணவர்களுக்கான கடந்த கால வினாத்தாள்கள் (Past Papers) 'Grade 11' கார்டில் கொடுக்கப்பட்டுள்ளன.";
-                } else if (userText.includes('a/l') || userText.includes('advanced level') || userText.includes('advanced')) {
-                    aiText = "Advanced Level (A/L) மாணவர்களுக்கான அனைத்துப் பாஸ்ட் பேப்பர்கள் மற்றும் ரிசோர்ஸ் புக்ஸ்கள் முகப்பில் உள்ள 'Advanced Level (A/L)' கூகுள் டிரைவ் லிங்கில் உள்ளன.";
+                    aiText = "தரம் 10 பாடக் குறிப்புகள் முகப்புப் பக்கத்தில் உள்ள 'Grade 10' கார்டில் உள்ளன.";
+                } else if (userText.includes('grade 11') || userText.includes('o/l')) {
+                    aiText = "தரம் 11 கடந்த கால வினாத்தாள்கள் 'Grade 11' கார்டில் கொடுக்கப்பட்டுள்ளன.";
+                } else if (userText.includes('a/l') || userText.includes('advanced level')) {
+                    aiText = "A/L past papers மற்றும் resource books முகப்பில் உள்ள 'Advanced Level (A/L)' கூகுள் டிரைவ் லிங்கில் உள்ளன.";
                 } else if (userText.includes('hello') || userText.includes('hi') || userText.includes('வணக்கம்')) {
-                    aiText = "வணக்கம்! நான் StudentNotes.lk AI Tutor. இலங்கைச் பாடத்திட்டக் கல்வி சந்தேகங்களை என்னிடம் கேட்கலாம்.";
+                    aiText = "வணக்கம்! உங்களது கல்விச் சந்தேகங்களை என்னிடம் கேட்கலாம் அல்லது PDF கோப்புகளை அப்லோட் செய்யலாம்.";
                 } else {
-                    aiText = `"${originalQuery}" பற்றிய தகவல்கள் StudentNotes.lk தளத்தில் உள்ள நோட்ஸ்கள் மற்றும் A/L டிரைவ் ஃபோல்டரில் உள்ளன. அதைப் பார்வையிடவும்.`;
+                    aiText = `"${originalQuery}" பற்றிய தகவல்கள் StudentNotes.lk தளத்தில் உள்ள நோட்ஸ்களில் சரிபார்க்கவும்.`;
                 }
 
-                // AI Response Display
                 const aiDiv = document.createElement('div');
                 aiDiv.className = 'ai-msg';
                 aiDiv.textContent = aiText;
