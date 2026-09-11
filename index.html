@@ -4,11 +4,161 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudentNotes.lk | Sri Lanka's Study Hub</title>
-    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* AI Tutor Modal Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        body {
+            background-color: #030712;
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(3, 7, 18, 0.85);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #818cf8;
+        }
+        /* Hero Section */
+        .hero-section {
+            padding: 160px 8% 80px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .hero-left {
+            max-width: 600px;
+        }
+        .hero-left h1 {
+            font-size: 45px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .hero-left h1 span {
+            color: #818cf8;
+        }
+        .hero-left p {
+            color: #94a3b8;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .subscribe-box {
+            display: flex;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px;
+            border-radius: 16px;
+            max-width: 500px;
+            margin-bottom: 25px;
+        }
+        .subscribe-box input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            padding: 10px 15px;
+            color: #fff;
+            font-size: 15px;
+        }
+        .btn-enter {
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        /* Resources Section */
+        .resources-section {
+            padding: 60px 8%;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section-header h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .section-header p {
+            color: #94a3b8;
+        }
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+        .resource-card {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 30px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .resource-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(129, 140, 248, 0.4);
+        }
+        .res-icon {
+            font-size: 28px;
+            color: #818cf8;
+            margin-bottom: 15px;
+        }
+        .resource-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .resource-card p {
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .btn-download {
+            color: #818cf8;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        /* AI Modal */
         .ai-modal {
             display: none;
             position: fixed;
@@ -18,7 +168,7 @@
             height: 100%;
             background: rgba(3, 7, 18, 0.8);
             backdrop-filter: blur(8px);
-            z-index: 1000;
+            z-index: 2000;
             justify-content: center;
             align-items: center;
         }
@@ -29,7 +179,6 @@
             max-width: 480px;
             border-radius: 24px;
             padding: 24px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
             color: #ffffff;
         }
         .ai-modal-header {
@@ -102,12 +251,8 @@
             border-radius: 12px;
             cursor: pointer;
             font-size: 16px;
-            transition: 0.3s;
         }
-        .upload-icon-btn:hover {
-            background: rgba(129, 140, 248, 0.2);
-        }
-        .ai-input-area button.send-btn {
+        .send-btn {
             background: linear-gradient(135deg, #6366f1, #ec4899);
             color: white;
             border: none;
@@ -128,20 +273,13 @@
             color: #cbd5e1;
             font-size: 13px;
         }
-        .pdf-file-card i {
-            color: #ef4444;
-            font-size: 18px;
-        }
     </style>
 </head>
 <body>
 
-    <!-- Live Stars Container -->
-    <div id="stars-container"></div>
-
-    <!-- Navigation Bar with New Logo Design -->
+    <!-- Navigation Bar with Logo -->
     <header class="navbar">
-        <div class="logo" style="display: flex; align-items: center; gap: 10px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 22px; color: #ffffff;">
+        <div class="logo" style="display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 22px; color: #ffffff;">
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="url(#paint0_linear)" stroke="#818cf8" stroke-width="1.5" stroke-linejoin="round"/>
                 <path d="M2 17L12 22L22 17" stroke="#ec4899" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -163,34 +301,14 @@
         </nav>
     </header>
 
-    <!-- Main Hero Section -->
+    <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-left">
             <h1>The Ultimate Guide <br>To Sri Lankan <br><span>Student Studies</span></h1>
             <p>Access high-quality School Notes, Term Papers, and A/L resources designed uniquely for your academic success.</p>
-            
             <div class="subscribe-box">
                 <input type="text" placeholder="Search notes, grades, past papers...">
                 <button class="btn-enter">Search</button>
-            </div>
-
-            <div class="social-icons">
-                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="#"><i class="fa-brands fa-telegram"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-        </div>
-
-        <!-- Daily Motivation Card -->
-        <div class="hero-right">
-            <div class="floating-card card-1">
-                <div class="card-header">
-                    <i class="fa-solid fa-quote-left"></i>
-                    <span>Daily Motivation</span>
-                </div>
-                <p class="card-text">"இன்றைய கல்வி நாளைய உங்களது வெற்றிகரமான எதிர்கத்திற்கான அஸ்திவாரம்."</p>
-                <div class="ai-badge">Never Give Up</div>
             </div>
         </div>
     </section>
@@ -199,76 +317,25 @@
     <section class="resources-section" id="resources">
         <div class="section-header">
             <h2>Select Your Grade</h2>
-            <p>Choose your grade or Advanced Level to view study resources and past papers instantly.</p>
+            <p>Choose your grade or Advanced Level to view study resources.</p>
         </div>
-
         <div class="resource-grid">
-            <!-- Grade 6 -->
-            <div class="resource-card" onclick="openGradePage('Grade 6')">
-                <div class="res-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                <span class="badge">Grade Level</span>
-                <h3>Grade 6</h3>
-                <p>Term test papers, unit-wise notes, and model questions for Grade 6.</p>
-                <div class="btn-download"><i class="fa-solid fa-arrow-right"></i> Open Grade 6</div>
-            </div>
-
-            <!-- Grade 7 -->
-            <div class="resource-card" onclick="openGradePage('Grade 7')">
-                <div class="res-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                <span class="badge">Grade Level</span>
-                <h3>Grade 7</h3>
-                <p>Term test papers, unit-wise notes, and model questions for Grade 7.</p>
-                <div class="btn-download"><i class="fa-solid fa-arrow-right"></i> Open Grade 7</div>
-            </div>
-
-            <!-- Grade 8 -->
-            <div class="resource-card" onclick="openGradePage('Grade 8')">
-                <div class="res-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                <span class="badge">Grade Level</span>
-                <h3>Grade 8</h3>
-                <p>Term test papers, unit-wise notes, and model questions for Grade 8.</p>
-                <div class="btn-download"><i class="fa-solid fa-arrow-right"></i> Open Grade 8</div>
-            </div>
-
-            <!-- Grade 9 -->
-            <div class="resource-card" onclick="openGradePage('Grade 9')">
-                <div class="res-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                <span class="badge">Grade Level</span>
-                <h3>Grade 9</h3>
-                <p>Term test papers, unit-wise notes, and model questions for Grade 9.</p>
-                <div class="btn-download"><i class="fa-solid fa-arrow-right"></i> Open Grade 9</div>
-            </div>
-
-            <!-- Grade 10 -->
             <div class="resource-card" onclick="openGradePage('Grade 10')">
                 <div class="res-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                <span class="badge">Grade Level</span>
                 <h3>Grade 10</h3>
-                <p>Term test papers, unit-wise notes, and model questions for Grade 10.</p>
-                <div class="btn-download"><i class="fa-solid fa-arrow-right"></i> Open Grade 10</div>
+                <p>Term test papers and unit-wise notes for Grade 10.</p>
+                <div class="btn-download"><i class="fa-solid fa-arrow-right"></i> Open</div>
             </div>
-
-            <!-- Grade 11 -->
             <div class="resource-card" onclick="openGradePage('Grade 11')">
                 <div class="res-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                <span class="badge">Grade Level</span>
                 <h3>Grade 11</h3>
-                <p>O/L past papers, theory notes, and structured questions for Grade 11.</p>
-                <div class="btn-download"><i class="fa-solid fa-arrow-right"></i> Open Grade 11</div>
-            </div>
-
-            <!-- Advanced Level (A/L) -->
-            <div class="resource-card" onclick="window.open('https://drive.google.com/drive/folders/1j67V_FMNa8408ADqx88VhnycZk-hFXDH?usp=drive_link', '_blank')">
-                <div class="res-icon"><i class="fa-solid fa-book-open"></i></div>
-                <span class="badge" style="color: #ec4899; background: rgba(236,72,153,0.15);">A/L Section</span>
-                <h3>Advanced Level (A/L)</h3>
-                <p>A/L past papers, resource books, and comprehensive study notes collection.</p>
-                <div class="btn-download"><i class="fa-solid fa-folder-open"></i> Open A/L Folder</div>
+                <p>O/L past papers and theory notes for Grade 11.</p>
+                <div class="btn-download"><i class="fa-solid fa-arrow-right"></i> Open</div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Section with Policy Links -->
+    <!-- Footer -->
     <footer style="margin-top: 80px; padding: 30px 20px; background: rgba(3, 7, 18, 0.9); border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center; color: #94a3b8; font-size: 14px;">
         <div style="margin-bottom: 15px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
             <a href="about.html" style="color: #818cf8; text-decoration: none;">About Us</a>
@@ -276,10 +343,10 @@
             <a href="privacy.html" style="color: #818cf8; text-decoration: none;">Privacy Policy</a>
             <a href="terms.html" style="color: #818cf8; text-decoration: none;">Terms & Conditions</a>
         </div>
-        <p>&copy; 2026 StudentNotes.lk. All rights reserved. Built for Sri Lankan Students.</p>
+        <p>&copy; 2026 StudentNotes.lk. All rights reserved.</p>
     </footer>
 
-    <!-- AI Tutor Popup Modal with PDF Upload Support -->
+    <!-- AI Modal -->
     <div id="aiModal" class="ai-modal">
         <div class="ai-modal-content">
             <div class="ai-modal-header">
@@ -290,161 +357,34 @@
                 <div class="ai-msg">வணக்கம்! உங்களது PDF குறிப்புகள் அல்லது கல்விச் சந்தேகங்களை என்னிடம் பகிரலாம்.</div>
             </div>
             <div class="ai-input-area">
-                <input type="text" id="aiUserInput" placeholder="கேள்வியைக் கேட்கவும் அல்லது PDF-ஐ அப்லோட் செய்யவும்..." onkeypress="handleKeyPress(event)">
-                <!-- Hidden File Input for PDF -->
-                <input type="file" id="pdfUploadInput" accept="application/pdf" style="display: none;" onchange="handlePDFUpload(event)">
-                <button type="button" class="upload-icon-btn" onclick="document.getElementById('pdfUploadInput').click()" title="Upload PDF">
-                    <i class="fa-solid fa-paperclip"></i>
-                </button>
+                <input type="text" id="aiUserInput" placeholder="கேள்வியைக் கேட்கவும்...">
                 <button class="send-btn" onclick="sendAIMessage()">Send</button>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript -->
     <script>
         function openGradePage(gradeName) {
             localStorage.setItem('selectedGrade', gradeName);
             window.location.href = 'grade-detail.html';
         }
-
         function openAITutor(event) {
             event.preventDefault();
             document.getElementById('aiModal').style.display = 'flex';
         }
-
         function closeAITutor() {
             document.getElementById('aiModal').style.display = 'none';
         }
-
-        function handleKeyPress(event) {
-            if (event.key === 'Enter') {
-                sendAIMessage();
-            }
-        }
-
-        // Handle PDF Upload by Students
-        function handlePDFUpload(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-
-            const chatBox = document.getElementById('aiChatBox');
-
-            const userDiv = document.createElement('div');
-            userDiv.className = 'user-msg';
-            userDiv.innerHTML = `PDF கோப்பு அப்லோட் செய்யப்பட்டது: <br>
-                <div class="pdf-file-card">
-                    <i class="fa-solid fa-file-pdf"></i>
-                    <span>${file.name}</span>
-                </div>`;
-            chatBox.appendChild(userDiv);
-            chatBox.scrollTop = chatBox.scrollHeight;
-
-            const loadingDiv = document.createElement('div');
-            loadingDiv.className = 'ai-msg';
-            loadingDiv.textContent = "PDF சரிபார்க்கப்படுகிறது...";
-            chatBox.appendChild(loadingDiv);
-            chatBox.scrollTop = chatBox.scrollHeight;
-
-            setTimeout(() => {
-                chatBox.removeChild(loadingDiv);
-
-                const aiDiv = document.createElement('div');
-                aiDiv.className = 'ai-msg';
-                aiDiv.textContent = `நன்றி! "${file.name}" வெற்றிகரமாகப் பெறப்பட்டது. இந்த PDF குறிப்பு StudentNotes.lk தளத்தின் மூலமாக மற்ற மாணவர்களுக்கும் பரிசீலிக்கப்படும்.`;
-                chatBox.appendChild(aiDiv);
-                chatBox.scrollTop = chatBox.scrollHeight;
-            }, 800);
-
-            event.target.value = '';
-        }
-
         function sendAIMessage() {
             const inputField = document.getElementById('aiUserInput');
             const chatBox = document.getElementById('aiChatBox');
-            const userText = inputField.value.trim().toLowerCase();
-
-            if (userText === '') return;
-
+            if(inputField.value.trim() === '') return;
             const userDiv = document.createElement('div');
             userDiv.className = 'user-msg';
             userDiv.textContent = inputField.value;
             chatBox.appendChild(userDiv);
-
-            const originalQuery = inputField.value;
             inputField.value = '';
             chatBox.scrollTop = chatBox.scrollHeight;
-
-            const loadingDiv = document.createElement('div');
-            loadingDiv.className = 'ai-msg';
-            loadingDiv.textContent = "பதில் தேடப்படுகிறது...";
-            chatBox.appendChild(loadingDiv);
-            chatBox.scrollTop = chatBox.scrollHeight;
-
-            setTimeout(() => {
-                chatBox.removeChild(loadingDiv);
-
-                let aiText = "இது தொடர்பான குறிப்புகள் மற்றும் பாஸ்ட் பேப்பர்கள் StudentNotes.lk தளத்தில் விரைவில் சேர்க்கப்படும்.";
-
-                if (userText.includes('photosynthesis') || userText.includes('ஒளித்தொகுப்பு')) {
-                    aiText = "ஒளித்தொகுப்பு (Photosynthesis): தாவரங்கள் சூரிய ஒளி, பச்சையம், காபனொட்சைட்டு மற்றும் நீர் ஆகியவற்றைப் பயன்படுத்தி குளுக்கோஸைத் தயாரித்து ஒட்சிசியனை வெளியேற்றும் செயலாகும்.";
-                } else if (userText.includes('newton') || userText.includes('நியூட்டன்')) {
-                    aiText = "நியூட்டனின் இயக்க விதிகள் 3 ஆகும்: 1. சடத்துவ விதி, 2. F=ma, 3. வினை எதிர்வினை விதி.";
-                } else if (userText.includes('grade 10') || userText.includes('தரம் 10')) {
-                    aiText = "தரம் 10 பாடக் குறிப்புகள் முகப்புப் பக்கத்தில் உள்ள 'Grade 10' கார்டில் உள்ளன.";
-                } else if (userText.includes('grade 11') || userText.includes('o/l')) {
-                    aiText = "தரம் 11 கடந்த கால வினாத்தாள்கள் 'Grade 11' கார்டில் கொடுக்கப்பட்டுள்ளன.";
-                } else if (userText.includes('a/l') || userText.includes('advanced level')) {
-                    aiText = "A/L past papers மற்றும் resource books முகப்பில் உள்ள 'Advanced Level (A/L)' கூகுள் டிரைவ் லிங்கில் உள்ளன.";
-                } else if (userText.includes('hello') || userText.includes('hi') || userText.includes('வணக்கம்')) {
-                    aiText = "வணக்கம்! உங்களது கல்விச் சந்தேகங்களை என்னிடம் கேட்கலாம் அல்லது PDF கோப்புகளை அப்லோட் செய்யலாம்.";
-                } else {
-                    aiText = `"${originalQuery}" பற்றிய தகவல்கள் StudentNotes.lk தளத்தில் உள்ள நோட்ஸ்களில் சரிபார்க்கவும்.`;
-                }
-
-                const aiDiv = document.createElement('div');
-                aiDiv.className = 'ai-msg';
-                aiDiv.textContent = aiText;
-                chatBox.appendChild(aiDiv);
-                chatBox.scrollTop = chatBox.scrollHeight;
-            }, 600);
-        }
-
-        // Search Functionality
-        const searchInput = document.querySelector('.subscribe-box input');
-        const searchBtn = document.querySelector('.btn-enter');
-        const resourceCards = document.querySelectorAll('.resource-card');
-
-        function performSearch() {
-            const query = searchInput.value.toLowerCase().trim();
-            resourceCards.forEach(card => {
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                const desc = card.querySelector('p').textContent.toLowerCase();
-                if (title.includes(query) || desc.includes(query)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-        searchBtn.addEventListener('click', performSearch);
-        searchInput.addEventListener('keyup', () => {
-            performSearch();
-        });
-
-        // Generating Dynamic Moving Stars for Live Wallpaper Effect
-        const starsContainer = document.getElementById('stars-container');
-        const numberOfStars = 50;
-
-        for (let i = 0; i < numberOfStars; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.top = Math.random() * 100 + 'vh';
-            star.style.left = Math.random() * 100 + 'vw';
-            star.style.animationDuration = (Math.random() * 3 + 2) + 's';
-            star.style.animationDelay = (Math.random() * 5) + 's';
-            starsContainer.appendChild(star);
         }
     </script>
 </body>
