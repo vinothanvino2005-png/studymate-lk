@@ -140,6 +140,16 @@
             color: #818cf8;
             margin-bottom: 15px;
         }
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(129, 140, 248, 0.15);
+            color: #818cf8;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
         .resource-card h3 {
             font-size: 20px;
             margin-bottom: 10px;
@@ -243,15 +253,6 @@
             outline: none;
             font-size: 14px;
         }
-        .upload-icon-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #818cf8;
-            padding: 10px 12px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-size: 16px;
-        }
         .send-btn {
             background: linear-gradient(135deg, #6366f1, #ec4899);
             color: white;
@@ -260,18 +261,6 @@
             border-radius: 12px;
             font-weight: 600;
             cursor: pointer;
-        }
-        .pdf-file-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px dashed rgba(255, 255, 255, 0.2);
-            padding: 8px 12px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 5px;
-            color: #cbd5e1;
-            font-size: 13px;
         }
     </style>
 </head>
@@ -313,24 +302,75 @@
         </div>
     </section>
 
-    <!-- Resources Section -->
+    <!-- Resources Section (All Grades 6 to A/L) -->
     <section class="resources-section" id="resources">
         <div class="section-header">
             <h2>Select Your Grade</h2>
-            <p>Choose your grade or Advanced Level to view study resources.</p>
+            <p>Choose your grade or Advanced Level to view study resources and past papers instantly.</p>
         </div>
+
         <div class="resource-grid">
+            <!-- Grade 6 -->
+            <div class="resource-card" onclick="openGradePage('Grade 6')">
+                <div class="res-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span class="badge">Grade Level</span>
+                <h3>Grade 6</h3>
+                <p>Term test papers, unit-wise notes, and model questions for Grade 6.</p>
+                <div class="btn-download"><i class="fa-solid fa-arrow-right"></i> Open Grade 6</div>
+            </div>
+
+            <!-- Grade 7 -->
+            <div class="resource-card" onclick="openGradePage('Grade 7')">
+                <div class="res-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span class="badge">Grade Level</span>
+                <h3>Grade 7</h3>
+                <p>Term test papers, unit-wise notes, and model questions for Grade 7.</p>
+                <div class="btn-download"><i class="fa-solid fa-arrow-right"></i> Open Grade 7</div>
+            </div>
+
+            <!-- Grade 8 -->
+            <div class="resource-card" onclick="openGradePage('Grade 8')">
+                <div class="res-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span class="badge">Grade Level</span>
+                <h3>Grade 8</h3>
+                <p>Term test papers, unit-wise notes, and model questions for Grade 8.</p>
+                <div class="btn-download"><i class="fa-solid fa-arrow-right"></i> Open Grade 8</div>
+            </div>
+
+            <!-- Grade 9 -->
+            <div class="resource-card" onclick="openGradePage('Grade 9')">
+                <div class="res-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span class="badge">Grade Level</span>
+                <h3>Grade 9</h3>
+                <p>Term test papers, unit-wise notes, and model questions for Grade 9.</p>
+                <div class="btn-download"><i class="fa-solid fa-arrow-right"></i> Open Grade 9</div>
+            </div>
+
+            <!-- Grade 10 -->
             <div class="resource-card" onclick="openGradePage('Grade 10')">
                 <div class="res-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span class="badge">Grade Level</span>
                 <h3>Grade 10</h3>
-                <p>Term test papers and unit-wise notes for Grade 10.</p>
-                <div class="btn-download"><i class="fa-solid fa-arrow-right"></i> Open</div>
+                <p>Term test papers, unit-wise notes, and model questions for Grade 10.</p>
+                <div class="btn-download"><i class="fa-solid fa-arrow-right"></i> Open Grade 10</div>
             </div>
+
+            <!-- Grade 11 -->
             <div class="resource-card" onclick="openGradePage('Grade 11')">
                 <div class="res-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span class="badge">Grade Level</span>
                 <h3>Grade 11</h3>
-                <p>O/L past papers and theory notes for Grade 11.</p>
-                <div class="btn-download"><i class="fa-solid fa-arrow-right"></i> Open</div>
+                <p>O/L past papers, theory notes, and structured questions for Grade 11.</p>
+                <div class="btn-download"><i class="fa-solid fa-arrow-right"></i> Open Grade 11</div>
+            </div>
+
+            <!-- Advanced Level (A/L) -->
+            <div class="resource-card" onclick="window.open('https://drive.google.com/drive/folders/1j67V_FMNa8408ADqx88VhnycZk-hFXDH?usp=drive_link', '_blank')">
+                <div class="res-icon"><i class="fa-solid fa-book-open"></i></div>
+                <span class="badge" style="color: #ec4899; background: rgba(236,72,153,0.15);">A/L Section</span>
+                <h3>Advanced Level (A/L)</h3>
+                <p>A/L past papers, resource books, and comprehensive study notes collection.</p>
+                <div class="btn-download"><i class="fa-solid fa-folder-open"></i> Open A/L Folder</div>
             </div>
         </div>
     </section>
